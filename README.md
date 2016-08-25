@@ -1,4 +1,7 @@
 # NativeScript ConfettiView Plugin
+[![npm](https://img.shields.io/npm/v/nativescript-confettiview.svg?maxAge=2592000?style=plastic)](https://www.npmjs.com/package/nativescript-confettiview) 
+[![npm](https://img.shields.io/npm/dt/nativescript-confettiview.svg?maxAge=2592000?style=plastic)](https://www.npmjs.com/package/nativescript-confettiview)
+
 A NativeScript plugin to create an animated confetti view on iOS. Currently not supported on Android.
 
 ## Getting Started

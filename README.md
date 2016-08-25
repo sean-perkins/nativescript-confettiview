@@ -1,1 +1,1 @@
-# NativeScript Chameleon Plugin
+# NativeScript ConfettiView Plugin

@@ -1,17 +1,11 @@
-import { ContentView } from 'ui/content-view';
-export declare class ConfettiView extends ContentView {
-    private _ios;
-    private emitter;
-    private colors;
-    private intensity;
-    private type;
+export declare class ConfettiView {
+    private _confettiView;
+    private _colors;
+    private _intensity;
     private _active;
     constructor();
     startConfetti(): void;
     stopConfetti(): void;
-    confettiWithColor(color: UIColor): CAEmitterCell;
-    ios: any;
-    _nativeView: any;
-    active: boolean;
-    isActive: boolean;
+    intensity(intensity: number): void;
+    colors(colors: Array<any>): void;
 }

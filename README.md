@@ -1,8 +1,8 @@
 # NativeScript ConfettiView Plugin
-[![npm](https://img.shields.io/npm/v/nativescript-confettiview.svg?maxAge=2592000?style=plastic)](https://www.npmjs.com/package/nativescript-confettiview) 
+[![npm](https://img.shields.io/npm/v/nativescript-confettiview.svg?maxAge=2592000?style=plastic)](https://www.npmjs.com/package/nativescript-confettiview)
 [![npm](https://img.shields.io/npm/dt/nativescript-confettiview.svg?maxAge=2592000?style=plastic)](https://www.npmjs.com/package/nativescript-confettiview)
 
-A NativeScript plugin to create an animated confetti view on iOS. Currently not supported on Android.
+A NativeScript plugin to create an animated confetti view on iOS and Android.
 
 ## Getting Started
 * `npm install nativescript-confettiview`
@@ -32,6 +32,10 @@ export class HelloWorldModel extends Observable {
 
 }
 ```
+
+_Note_: On first run, you may see a console log regarding an incorrect local file path. Let the install finish and you will notice the `package.json` will reflect your local file path to the plugin.
+
+
 ### Available Functions
 |Call Signature|Default|
 |---|---|
@@ -48,3 +52,4 @@ export class HelloWorldModel extends Observable {
 
 ## Credits
 * https://github.com/sudeepag/SAConfettiView for the original Pod
+* https://github.com/NathanWalker/SAConfettiView Nathan Walker for the upgrades to the Pod and this plugin

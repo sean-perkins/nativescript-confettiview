@@ -1,8 +1,15 @@
 <Page
-    xmlns="http://schemas.nativescript.org/tns.xsd" loaded="pageLoaded">
-    <StackLayout>
-        <Label text="It's raining confetti!" class="message" textWrap="true"/>
-        <Button text="Stop Confetti" tap="{{ stopConfetti }}"/>
-        <Button text="Start Confetti" tap="{{ startConfetti }}"/>
+    xmlns="http://schemas.nativescript.org/tns.xsd" 
+    xmlns:confetti="nativescript-confettiview"
+    loaded="loaded"
+    navigatingTo="navigatingTo">
+    <StackLayout class="w-full h-full">
+        <confetti:ConfettiView id="confetti" colors="{{ colors }}">
+            <StackLayout id="container" class="inner-content p-20">
+                <Label text="It's raining confetti!" class="message" textWrap="true"/>
+                <Button text="Stop Confetti" tap="{{ stopConfetti }}"/>
+                <Button text="Start Confetti" tap="{{ startConfetti }}"/>
+            </StackLayout>
+        </confetti:ConfettiView>
     </StackLayout>
 </Page>

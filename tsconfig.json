@@ -2,17 +2,24 @@
     "compilerOptions": {
         "target": "es5",
         "module": "commonjs",
-        "removeComments": true,
+        "moduleResolution": "node",
+        "emitDecoratorMetadata": true,
         "experimentalDecorators": true,
         "noEmitHelpers": true,
-        "declaration": true
+        "removeComments": true,
+        "noEmitOnError": true,
+        "declaration": true,
+        "lib": [
+            "dom",
+            "es6"
+        ],
+        "skipLibCheck": true
     },
-    "files": [
-      "node_modules/tns-core-modules/tns-core-modules.d.ts",
-      "node_modules/tns-platform-declarations/tns-core-modules/android17.d.ts",
-      "node_modules/tns-platform-declarations/tns-core-modules/ios.d.ts",
-      "node_modules/tns-platform-declarations/tns-core-modules/org.nativescript.widgets.d.ts",
-      "confetti-view.ios.ts"
-    ],
-    "compileOnSave": false
+    "include": [
+        "references.d.ts",
+        "typings/android.support.v7.widget.RecyclerView.d.ts",
+        "typings/objc!SAConfettiView.d.ts",
+        "confetti-view.android.ts",
+        "confetti-view.ios.ts"
+    ]
 }

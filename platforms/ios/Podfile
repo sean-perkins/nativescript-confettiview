@@ -1,1 +1,1 @@
-pod "SAConfettiView"
+pod "SAConfettiView", :git => "https://github.com/NathanWalker/SAConfettiView.git"

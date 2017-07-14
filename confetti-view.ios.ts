@@ -1,53 +1,103 @@
-import {topmost} from 'ui/frame';
+import { topmost } from 'tns-core-modules/ui/frame';
+import { ContentView } from 'tns-core-modules/ui/content-view';
+import { IConfettiTypes, ConfettiViewBase } from './common';
 
-declare var SAConfettiView: any;
+export class ConfettiView extends ConfettiViewBase {
 
-export class ConfettiView {
+    public static Types: IConfettiTypes = {
+        confetti: ConfettiType.Confetti,
+        triangle: ConfettiType.Triangle,
+        star: ConfettiType.Star,
+        diamond: ConfettiType.Diamond,
+        image: ConfettiType.Image
+    }
 
-    private _confettiView: any;
-
-    private _colors:Array<UIColor> = [
+    private _colors: Array<UIColor> = [
         UIColor.colorWithRedGreenBlueAlpha(0.95, 0.40, 0.27, 1.0),
         UIColor.colorWithRedGreenBlueAlpha(1.00, 0.78, 0.36, 1.0),
         UIColor.colorWithRedGreenBlueAlpha(0.48, 0.78, 0.64, 1.0),
         UIColor.colorWithRedGreenBlueAlpha(0.30, 0.76, 0.85, 1.0),
         UIColor.colorWithRedGreenBlueAlpha(0.58, 0.39, 0.55, 1.0)
     ];
+    private _confetti: any;
     private _intensity: number = 0.5;
     private _active: boolean = false;
+    private _autoStart: boolean = true;
+    private _fullScreen: boolean = false;
 
-    constructor() {
-        this._confettiView = new SAConfettiView(topmost());
-        this._confettiView.colors = this._colors;
-        this._confettiView.itensity = this._intensity;
-        topmost().currentPage.ios.view.addSubview(this._confettiView);
+    createNativeView() {
+        const confetti = SAConfettiView.new();
+        if (this._fullScreen) {
+            // use dummy view
+            this.nativeView = UIView.alloc().init();
+            this._confetti = confetti;
+            rootVC().view.addSubview(confetti);
+        } else {
+            this.nativeView = confetti;
+        }
+        return this.nativeView;
+    }
+
+    initNativeView() {
+        const confetti = this._confetti || this.nativeView;
+        confetti.colors = this._colors;
+        confetti.itensity = this._intensity;
+        if (this._autoStart) {
+            this.startConfetti();
+        }
+    }
+
+    destroyNativeView() {
+        if (this.confetti) {
+            this.stopConfetti();
+            if (this._fullScreen) {
+                this.confetti.removeFromSuperview();
+            }
+        }
     }
 
     public startConfetti() {
-        if(this._confettiView && !this._active) {
-            this._confettiView.startConfetti();
+        if (this.confetti && !this._active) {
+            this.confetti.startConfetti();
             this._active = true;
         }
     }
 
     public stopConfetti() {
-        if(this._confettiView && this._active) {
-            this._confettiView.stopConfetti();
+        if (this.confetti && this._active) {
+            this.confetti.stopConfetti();
             this._active = false;
         }
     }
 
-    public intensity(intensity: number) {
-        if(this._confettiView) {
-            this._confettiView.intensity = intensity;
+    public set colors(value: Array<any>) {
+        this._colors = value;
+        if (this.confetti) {
+            this.confetti.colors = value;
         }
     }
 
-    public colors(colors: Array<any>) {
-        if(this._confettiView) {
-            this._confettiView.colors = colors;
+    public set intensity(value: number) {
+        this._intensity = value;
+        if (this.confetti) {
+            this.confetti.intensity = value;
         }
     }
 
+    public set fullScreen(value: boolean) {
+        this._fullScreen = value;
+    }    
 
+    public get fullScreen() {
+        return this._fullScreen;
+    }
+
+    public get confetti() {
+        return this._confetti || this.nativeView;
+    }
+}
+
+const rootVC = function() {
+    let appWindow = UIApplication.sharedApplication.keyWindow;
+    return appWindow.rootViewController;
 }

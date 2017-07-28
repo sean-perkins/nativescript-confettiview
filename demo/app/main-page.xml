@@ -4,7 +4,7 @@
     loaded="loaded"
     navigatingTo="navigatingTo">
     <StackLayout class="w-full h-full">
-        <confetti:ConfettiView id="confetti" colors="{{ colors }}">
+        <confetti:ConfettiView id="confetti">
             <StackLayout id="container" class="inner-content p-20">
                 <Label text="It's raining confetti!" class="message" textWrap="true"/>
                 <Button text="Stop Confetti" tap="{{ stopConfetti }}"/>

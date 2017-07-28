@@ -13,5 +13,6 @@ export declare abstract class ConfettiViewBase extends ContentView {
     colors: Array<any>;
     intensity: number;
     fullScreen: boolean;
+    autoStart: boolean;
     readonly confetti: any;
 }

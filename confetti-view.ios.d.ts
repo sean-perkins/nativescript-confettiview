@@ -15,5 +15,6 @@ export declare class ConfettiView extends ConfettiViewBase {
     colors: Array<any>;
     intensity: number;
     fullScreen: boolean;
+    autoStart: boolean;
     readonly confetti: any;
 }

@@ -73,5 +73,9 @@ export class ConfettiView extends ConfettiViewBase {
 
   public get fullScreen(): boolean { return false; }
 
+  public set autoStart(value: boolean) { }
+
+  public get autoStart(): boolean { return false; }
+
   public get confetti(): any { return this._confetti; }
 }

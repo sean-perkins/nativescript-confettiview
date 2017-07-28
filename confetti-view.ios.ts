@@ -22,7 +22,7 @@ export class ConfettiView extends ConfettiViewBase {
     private _confetti: any;
     private _intensity: number = 0.5;
     private _active: boolean = false;
-    private _autoStart: boolean = true;
+    private _autoStart: boolean = false;
     private _fullScreen: boolean = false;
 
     createNativeView() {
@@ -41,9 +41,14 @@ export class ConfettiView extends ConfettiViewBase {
     initNativeView() {
         const confetti = this._confetti || this.nativeView;
         confetti.colors = this._colors;
-        confetti.itensity = this._intensity;
+        confetti.intensity = this._intensity;
+        confetti.autoStart = this._autoStart;
+        confetti.fullScreen = this._fullScreen;
         if (this._autoStart) {
             this.startConfetti();
+        }
+        else {
+            this.stopConfetti();
         }
     }
 
@@ -90,6 +95,14 @@ export class ConfettiView extends ConfettiViewBase {
 
     public get fullScreen() {
         return this._fullScreen;
+    }
+
+    public set autoStart(value: boolean) {
+        this._autoStart = value;
+    }    
+
+    public get autoStart() {
+        return this._autoStart;
     }
 
     public get confetti() {

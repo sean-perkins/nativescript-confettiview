@@ -8,8 +8,6 @@ export declare class ConfettiView extends ConfettiViewBase {
     private _autoStart;
     private _fullScreen;
     private _colors;
-    constructor();
-    createNativeView(): any;
     initNativeView(): void;
     destroyNativeView(): void;
     startConfetti(): void;
@@ -18,6 +16,6 @@ export declare class ConfettiView extends ConfettiViewBase {
     colors: Array<string>;
     intensity: number;
     fullScreen: boolean;
+    autoStart: boolean;
     readonly confetti: any;
-    onLayout(left: number, top: number, right: number, bottom: number): void;
 }

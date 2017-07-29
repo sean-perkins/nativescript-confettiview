@@ -23,5 +23,9 @@ export abstract class ConfettiViewBase extends ContentView {
 
   public get fullScreen() { return false; }
 
+  public set autoStart(value: boolean) { }
+
+  public get autoStart() { return false; }
+  
   public get confetti() { return null; }
 }

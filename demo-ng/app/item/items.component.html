@@ -1,9 +1,11 @@
 <ActionBar title="My App" class="action-bar">
 </ActionBar>
 <StackLayout class="page">
-    <ConfettiView height="300" width="100%">
+    <ConfettiView #confetti height="300" width="100%" autoStart="true">
         <StackLayout class="p-10">
             <Label text="Can be embedded." textWrap="true"></Label>
+            <Button text="Start Confetti" (tap)="startConfetti()"></Button>
+            <Button text="Stop Confetti" (tap)="stopConfetti()"></Button>
             <Label text="Or tap an item below for full screen." textWrap="true"></Label>
         </StackLayout>
     </ConfettiView>

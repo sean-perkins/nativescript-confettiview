@@ -4,6 +4,6 @@ demo-ng/
 *.log
 *.map
 *.ts
-!.d.ts
+!index.d.ts
 node_modules
 package-lock.json

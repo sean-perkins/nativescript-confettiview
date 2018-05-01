@@ -1,6 +1,6 @@
 {
   "name": "nativescript-confettiview",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "description": "NativeScript plugin for Confetti Views.",
   "main": "confetti-view",
   "typings": "index.d.ts",
